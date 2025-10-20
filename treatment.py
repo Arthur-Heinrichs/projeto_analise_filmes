@@ -58,23 +58,22 @@ df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
 
 df["revenue_per_budget"] = np.where(df["budget"] == 0, np.nan, np.divide(df["revenue"], df["budget"]))
 
+
 df['yearmonthday'] = df['release_date'].dt.strftime('%Y%m%d').astype(int)
 
 df['yearmonth'] = df['release_date'].dt.strftime('%Y%m').astype(int)
 
 df['year'] = df['release_date'].dt.strftime('%Y').astype(int)
 
-
-
 df.to_csv("clean_data.csv") 
 
 print("all data has been cleaned")
 
 
-df_opened_by_genres = df[["title", "revenue", "budget", "revenue_per_budget", "genres", "production_companies", "yearmonthday", "yearmonth", "year"]].copy()
+df_opened_by_genres = df[["id", "title", "revenue", "budget", "revenue_per_budget", "genres", "production_companies", "yearmonthday", "yearmonth", "year"]].copy()
 
 
-df_opened_by_production_companies = df[["title", "revenue", "budget", "revenue_per_budget","genres", "production_companies", "yearmonthday", "yearmonth", "year"]].copy()
+df_opened_by_production_companies = df[["id","title", "revenue", "budget", "revenue_per_budget","genres", "production_companies", "yearmonthday", "yearmonth", "year"]].copy()
 
 df_opened_countries = df.copy()
 

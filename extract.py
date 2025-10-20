@@ -30,7 +30,7 @@ def extract_tmdb(year, pag):
 #To consult movie ids we have to provide a language. en-US does not mean only movies made in the US, but movies that have some sort of translation to this language.
         r = requests.get("https://api.themoviedb.org/3/discover/movie",
                           params={
-                              "api_key":"your api key here",
+                              "api_key":"", #dispose your tmdb api_key here (the numbers and leters)
                               "language":"en-US",
                               "page":page,
                               "primary_release_year":year,
@@ -52,7 +52,7 @@ def details_tmdb(movie_id):
     headers = {
                 "accept": "application/json",
                 #here you have to put your authorization key with the Bearer, not the api key, otherwise it won't work.
-                "Authorization": "Bearer <your authorization code here>"}
+                "Authorization": "Bearer"}
     r = requests.get(url, 
                      headers=headers,
                      timeout=10
